@@ -1,8 +1,7 @@
 package com.balldance.baller.controller;
 
-import com.balldance.baller.model.Test;
 import com.balldance.baller.model.User;
-import com.balldance.baller.repository.UserRepository;
+import com.balldance.baller.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +9,16 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     // Autowired注解会自动将userRepository和对应的数据表进行绑定, 不需要额外初始化
     @Autowired
-    private UserRepository mUserRepository;
+    private UserRepo mUserRepo;
+
+    @PostMapping("/getToken")
+    public String getToken(@RequestBody User user) {
+        User res = mUserRepo.findByIdAndPasswd(user.getUuid(), user.getPwd());
+        if (res == null) {
+            return "";
+        }
+        return "abcdefg";
+    }
 
     /**
      * 更新用户信息的http api接口.
@@ -19,11 +27,10 @@ public class UserController {
      * @param user
      * @return
      */
-    @ResponseBody
     @PostMapping("/updateUser")
     public int update(@RequestBody User user) {
         System.out.println("getUserInfo");
-        User res = mUserRepository.save(user);
+        User res = mUserRepo.save(user);
         return 0;
     }
 }

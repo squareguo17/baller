@@ -49,4 +49,16 @@ public class User {
     public void setPosition(int position) {
         mPosition = position;
     }
+
+    public String getUuid() {
+        return mUuid;
+    }
+
+    public String getUsrName() {
+        return mUserName;
+    }
+
+    public String getPwd() {
+        return mPasswd;
+    }
 }
