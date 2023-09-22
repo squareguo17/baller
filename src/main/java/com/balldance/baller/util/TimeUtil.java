@@ -8,7 +8,7 @@ public class TimeUtil {
     public static String getTime(String beforeTime, int seconds) {
         long baseTime = 0;
         try {
-            baseTime = Long.valueOf(beforeTime)
+            baseTime = Long.valueOf(beforeTime);
         } catch (Exception e) {
             System.out.println("get time error with:" + e.toString());
         }

@@ -13,10 +13,10 @@ public class UserController {
 
     @PostMapping("/getToken")
     public String getToken(@RequestBody User user) {
-        User res = mUserRepo.findByIdAndPasswd(user.getUuid(), user.getPwd());
-        if (res == null) {
-            return "";
-        }
+//        User res = mUserRepo.findByIdAndPasswd(user.getUuid(), user.getPwd());
+//        if (res == null) {
+//            return "";
+//        }
         return "abcdefg";
     }
 
